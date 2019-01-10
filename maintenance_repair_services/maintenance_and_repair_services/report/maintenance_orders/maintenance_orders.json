@@ -1,0 +1,24 @@
+{
+ "add_total_row": 0, 
+ "creation": "2018-04-29 21:05:18.785190", 
+ "disabled": 0, 
+ "docstatus": 0, 
+ "doctype": "Report", 
+ "idx": 0, 
+ "is_standard": "Yes", 
+ "modified": "2018-12-17 10:43:43.598794", 
+ "modified_by": "Administrator", 
+ "module": "Maintenance and Repair Services", 
+ "name": "Maintenance Orders", 
+ "owner": "Administrator", 
+ "prepared_report": 0, 
+ "query": "SELECT\n\tms.name as \"Name::120\",\t\n\tms.customer as \"Customer:Link/Customer:120\",\t\n\tms.item_code as \"Item Code:Link/Item:100\",\n\tms.barcode as \"Barcode::100\",\n\tms.owner as \"Added by::120\",\n    \tms.creation as \"Added Date:Datetime:120\",\n   \tms.assign_to as \"Assigned To::120\",\n    \tms.start_date as \"Starting Date:Datetime:120\",\n   \tms.end_date as \"Expiry Date:Datetime:120\",\n\tms.prepaid as \"Prepaid:120\",\n\tms.status as \"Status:Data:120\"\n\nFROM\n\t`tabMaintenance Order` ms \n\tleft join `tabUser` as usr\n\ton ms.assign_to = usr.name\nORDER BY\n\tms.start_date asc, ms.item_code asc", 
+ "ref_doctype": "Maintenance Order", 
+ "report_name": "Maintenance Orders", 
+ "report_type": "Query Report", 
+ "roles": [
+  {
+   "role": "Maintenance Manager"
+  }
+ ]
+}
